@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista de Items</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #1F201F;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Esto asegura que el contenido esté centrado verticalmente en la pantalla */
+            }
+     
+            h2 {
+                color: #fff;
+            }
+     
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+     
+            li {
+                background-color: #fff;
+                margin: 10px 0;
+                padding: 15px;
+                border-radius: 5px;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            }
+     
+            a {
+                color: #fff;
+                text-decoration: none;
+                margin-left: 10px;
+            }
+            .add:hover {
+                color: #89FD34;
+            }
+            .del {
+                color: #000000;
+            }
+            .del:hover {
+                color: #EE3324;
+            }
+        </style>
+     </head>
+<body>
+<center>
+<h2>Lista de Items</h2>
+<ul>
+  {% for item in items %}
+    <li>{{ item.name }} - {{ item.email }} <a href="{% url 'delete' pk=item.pk %}" class="del">Eliminar</a></li>
+  {% endfor %}
+</ul>
+<a href="{% url 'create' %}" class="add">Agregar Item</a>
+</center>
+</body>
+</html>
